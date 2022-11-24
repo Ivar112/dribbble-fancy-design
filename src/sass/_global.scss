@@ -1,0 +1,119 @@
+.container-fluid {
+
+    div[class^="g-col-"] {
+        &:not(.main-col-right) {
+            padding: $grid-gutter-width;
+        }
+        &.g-col-md-6 {
+            &:first-child {
+                padding-right: 0;
+            }
+            &:nth-child(2) {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+.header {
+    height: auto;
+    background-color: $primary;
+    color: $gray-600;
+    font-size: $font-size-base * 1.125;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    .container-fluid {
+        padding-left: $grid-gutter-width * 2;
+        padding-right: $spacer * 4.5;
+        a {
+            color: $gray-600;
+        }
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+    .main {
+        flex-grow: 1;
+        display: flex;
+        .container-fluid {
+            display: flex;
+            padding: 0;
+            .main-grid {
+                grid-template-rows: 1fr;
+                gap: 0;
+                .main-col {
+                    &-left {
+                        border-right: 3px solid $primary;
+                        grid-row: 1 / span 2;
+                        background-color: $secondary;
+                        z-index: 2;
+                        @include media-breakpoint-up(xxl) {
+                            padding-left: $grid-gutter-width * 3;
+                        }
+                        a {
+                            margin-bottom: $grid-gutter-width * 1.25;
+                            display: block;
+                        }
+                    }
+                    &-right {
+                        transition: all, 1.5s;
+                        grid-column: 5 / span 8;
+                        grid-row: 1;
+                        z-index: 1;
+                        grid-template-rows: auto 1fr;
+                        row-gap: 0;
+                 
+                        &.next {
+                            transform: translateX(100%);
+                        }
+                        &.previous {
+                            transform: translateX(-100vw);
+                        }
+                        
+                        .top-row {
+                            border-bottom: 3px solid transparent;
+                            position: relative;
+                            grid-row: 1;
+                            grid-column: 1 / -1;
+
+                            .g-col-md-6 {
+                                display: flex;
+                                align-items: flex-end;
+                                .content {
+                                    width: 50%;
+                                    .page-count {
+                                        margin-bottom: $grid-gutter-width
+                                    }
+                                }
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                background-color: $primary;
+                                bottom: -3px;
+                                height: 3px;
+                                width: 200vw;
+                            }
+                        }
+                        .bottom-row {
+                            grid-row: 2;
+                            grid-column: 1 / -1;
+                            .img-fluid {
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                                object-position: center;
+                                aspect-ratio: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+    }
+}

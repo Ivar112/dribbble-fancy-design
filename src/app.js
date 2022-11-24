@@ -14,12 +14,16 @@ for(let i=0; i < images.length; i++){
 let nextBtn = document.getElementById('next');
 
 nextBtn.addEventListener('click', function(e) {
-    document.querySelectorAll('.active').forEach(element => {
-        element.classList.remove('active');
-        element.classList.add('previous');
-    });
-    document.querySelectorAll('.next').forEach(element => {
-        element.classList.remove('next');
-        element.classList.add('active');
+    document.querySelectorAll('.main-col-right').forEach(element => {
+        if (element.classList.contains('active')) {
+            element.classList.remove('active');
+            element.classList.add('previous');
+        } else if (element.classList.contains('next')){
+            element.classList.remove('next');
+            element.classList.add('active');
+        } else if (element.classList.contains('previous')){
+            element.classList.remove('previous');
+            element.classList.add('next');
+        }
     });
 });

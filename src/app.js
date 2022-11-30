@@ -41,3 +41,31 @@ nextBtn.addEventListener('click', function(e) {
     }, 375);
  
 });
+
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode == 39) {
+        document.querySelectorAll('.main-col-right').forEach(element => {
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
+                element.classList.add('previous');
+            } else if (element.classList.contains('next')){
+                element.classList.remove('next');
+                element.classList.add('active');
+            } else if (element.classList.contains('previous')){
+                element.classList.remove('previous');
+                element.classList.add('next');
+            }
+        });
+        document.body.classList.add('transitioning');
+        setTimeout(function () {document.body.classList.remove('transitioning')}, 1000);
+        setTimeout(function () { 
+        if (i == 3) {
+            i = 1
+        } else {
+            i++;
+        }
+        pageCount.innerHTML = '/0' + i;
+        }, 375);
+    }
+ 
+});

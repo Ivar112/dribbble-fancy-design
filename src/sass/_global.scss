@@ -70,6 +70,25 @@ body {
                         
                         &.active {
                             z-index: 1;
+                            .top-row {
+                                .g-col-md-6 {
+                                    &:nth-of-type(2) {
+                                        .content {
+                                            animation: activeText 1s ease-out;
+                                        }
+                                    }
+                                }
+                            }
+                            .bottom-row {
+                                .g-col-md-6 {
+                                    &:nth-of-type(2) {
+                                        img {
+                                            animation: activeImg 750ms ease-out;
+                                            animation-delay: 500ms;
+                                        }
+                                    }
+                                }
+                            }
                         }
                         &.next {
                             transform: translateX(100%);
@@ -77,6 +96,15 @@ body {
                         &.previous {
                             animation: slidein 2s;
                             transform: translate(100%);
+                            .top-row {
+                                .g-col-md-6 {
+                                    &:first-of-type {
+                                        .content {
+                                            animation: previousText 500ms ease-out;
+                                        }
+                                    }
+                                }
+                            }
                         }
                         
                         .top-row {

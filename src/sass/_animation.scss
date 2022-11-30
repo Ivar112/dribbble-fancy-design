@@ -6,4 +6,34 @@
     to {
       transform: translateX(-100vw);
     }
-  }
+}
+
+@keyframes activeText {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    };
+}
+
+@keyframes previousText {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    };
+}
+
+@keyframes activeImg {
+    from {
+        width: 0%;
+    }
+    
+    to {
+        width: 100%;
+    }
+}

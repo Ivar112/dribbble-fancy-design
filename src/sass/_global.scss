@@ -37,6 +37,13 @@ body {
     flex-direction: column;
     height: 100vh;
     overflow-x: hidden;
+    &.transitioning {
+        .page-count {
+            span {
+                animation: pageCount 750ms ease-out;
+            }
+        }
+    }
     .main {
         flex-grow: 1;
         display: flex;
@@ -52,12 +59,42 @@ body {
                         grid-row: 1 / span 2;
                         background-color: $secondary;
                         z-index: 2;
+                        position: relative;
                         @include media-breakpoint-up(xxl) {
                             padding-left: $grid-gutter-width * 3;
                         }
                         a {
                             margin-bottom: $grid-gutter-width * 1.25;
                             display: block;
+                        }
+                        .page-count {
+                            font-size: $font-size-base * 1.125;
+                            position: absolute;
+                            top: 32px;
+                            right: -64px;
+                            span {
+                                display: block;
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: -28px;
+                                right: 0;
+                                height: 32px;
+                                width: 32px;
+                                background-color: $body-bg;
+                                z-index: 1;
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 24px;
+                                right: 0;
+                                height: 32px;
+                                width: 32px;
+                                background-color: $body-bg;
+                                z-index: 1;
+                            }
                         }
                     }
                     &-right {
@@ -118,9 +155,9 @@ body {
                                 align-items: flex-end;
                                 .content {
                                     width: 50%;
-                                    .page-count {
-                                        margin-bottom: $grid-gutter-width
-                                    }
+                                }
+                                &:first-of-type {
+                                    padding-top: $grid-gutter-width * 3;
                                 }
                             }
                             &:after {

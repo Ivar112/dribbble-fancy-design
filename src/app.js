@@ -12,6 +12,9 @@ for(let i=0; i < images.length; i++){
 }
 
 let nextBtn = document.getElementById('next');
+let pageCount = document.getElementById('pageCount');
+let i = 1;
+pageCount.innerHTML = '/0' + i;
 
 nextBtn.addEventListener('click', function(e) {
     document.querySelectorAll('.main-col-right').forEach(element => {
@@ -26,4 +29,15 @@ nextBtn.addEventListener('click', function(e) {
             element.classList.add('next');
         }
     });
+    document.body.classList.add('transitioning');
+    setTimeout(function () {document.body.classList.remove('transitioning')}, 1000);
+    setTimeout(function () { 
+    if (i == 3) {
+        i = 1
+    } else {
+        i++;
+    }
+    pageCount.innerHTML = '/0' + i;
+    }, 375);
+ 
 });

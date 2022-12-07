@@ -87,6 +87,27 @@ body {
                                 z-index: 1;
                             }
                         }
+                        .grid {
+                            display: relative;
+                            .arrow {
+                                border-top: 5px solid $primary;
+                                border-right: 5px solid $primary;
+                                width: 25px;
+                                height: 25px;
+                                position: relative;
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    top: -8px;
+                                    right: -9px;
+                                    border-top: 5px solid $primary;
+                                    transform-origin: right;
+                                    transform: rotate(-45deg);
+                                    width: 29px;
+                                    height: 25px;
+                                }
+                            }
+                        }
                     }
                     &-right {
                         grid-column: 5 / span 8;
@@ -125,51 +146,12 @@ body {
                             }
                         }
                         
-                        // &.active {
-                        //     z-index: 1;
-                        //     .top-row {
-                        //         .g-col-md-6 {
-                        //             &:nth-of-type(2) {
-                        //                 .content {
-                        //                     animation: activeText 1s ease-out;
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        //     .bottom-row {
-                        //         .g-col-md-6 {
-                        //             &:nth-of-type(2) {
-                        //                 img {
-                        //                     animation: activeImg 750ms ease-out;
-                        //                     animation-delay: 500ms;
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // &.next {
-                        //     transform: translateX(100%);
-                        // }
-                        // &.previous {
-                        //     animation: slidein 2s;
-                        //     transform: translate(100%);
-                        //     .top-row {
-                        //         .g-col-md-6 {
-                        //             &:first-of-type {
-                        //                 .content {
-                        //                     animation: previousText 500ms ease-out;
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        
                         .slide {
                             grid-row: 1;
                             row-gap: $grid-gutter-width;
                             display: grid;
                             grid-template-rows: auto 1fr;
-                            @for $i from 1 through 8 {
+                            @for $i from 1 through 3 {
                                 &-#{$i} {
                                     order: $i;
                                 }    
@@ -202,6 +184,37 @@ body {
                                     aspect-ratio: 1;
                                 }
                             }
+                        }
+                    }
+                }
+                .counter {
+                    position: absolute;
+                    right: -$grid-gutter-width * 1.5;
+                    bottom: $grid-gutter-width * .5;
+                    display: flex;
+                    flex-direction: column;
+                    font-size: $font-size-base * 12;
+                    font-family: $headings-font-family;
+                    line-height: 1;
+                    overflow: hidden;
+                    width: 250px;
+                    height: 200px;            
+                    &.animating {
+                        span {
+                            animation: countUp 500ms ease-out;
+                            animation-delay: 500ms;
+                        }
+                    }
+                    @for $i from 1 through 3 {
+                        &.count-#{$i} {
+                            span:nth-child(#{$i}) {
+                                order: -1;
+                            }
+                        }
+                    }
+                    &.count-2 {
+                        span:first-child {
+                            order: 1;
                         }
                     }
                 }

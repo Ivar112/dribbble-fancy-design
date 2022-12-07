@@ -75,3 +75,34 @@
         transform: translateY(-100%);
     }
 }
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes imgHeight {
+    from {
+        height: 0%;
+    }
+    to {
+        height: calc(100vh - 91px);
+    }
+}
+
+@keyframes btnHeight {
+    from {
+        height: 0px;
+        border: none;
+        padding: 0 $btn-padding-x;
+    }
+    to {
+        height: initial;
+        border: 1px solid $primary;
+        padding: $btn-padding-y $btn-padding-x;
+    }
+}

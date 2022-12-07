@@ -6,4 +6,39 @@
     place-items: center;
     z-index: 2;
     background-color: $body-bg;
+    position: relative;
+    height: calc(100vh - 91px);
+
+    .btn-close {
+        position: fixed;
+        top: $grid-gutter-width;
+        right: $grid-gutter-width * 2;
+        text-transform: uppercase;
+        font-weight: $font-weight-semibold;
+        color: $gray-600;
+        overflow: hidden;
+    }
+    .content {
+        width: 100%;
+        height: inherit;
+        img {
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            object-position: center;
+            transition: 1s ease-in;
+        }
+    }
+    &.show {
+        animation: slideDown 1000ms ease-out forwards;
+        .btn-close {
+            animation: btnHeight 750ms ease-in-out both;
+            animation-delay: 750ms;
+        }
+        .content {
+            img {
+                animation: imgHeight 1200ms ease-in;
+            }
+        }
+    }
 }

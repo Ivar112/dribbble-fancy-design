@@ -126,7 +126,7 @@ body {
                         padding: 0 0 $grid-gutter-width $grid-gutter-width;
 
                         &.move-left {
-                            animation: slidein 1s 1 none ease-in;
+                            animation: slidein 1s 1 ease-in forwards;
                             .slide {
                                 &-1 {
                                     .top-row {

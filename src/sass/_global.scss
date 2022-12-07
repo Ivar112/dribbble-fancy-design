@@ -15,6 +15,8 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 3;
     .container-fluid {
         padding-left: $grid-gutter-width * 2;
         padding-right: $spacer * 4.5;
@@ -44,6 +46,7 @@ body {
             padding: 0;
             .main-grid {
                 grid-template-rows: 1fr;
+                gap: 0;
                 .main-col {
                     &-left {
                         border-right: 3px solid $primary;
@@ -120,6 +123,7 @@ body {
                         grid-auto-columns: calc(50% - #{$spacer * 2});
                         grid-auto-flow: column;
                         transform: translateX(0%);
+                        padding: 0 0 $grid-gutter-width $grid-gutter-width;
 
                         &.move-left {
                             animation: slidein 1s 1 none ease-in;
@@ -162,7 +166,11 @@ body {
                                 position: relative;
                                 grid-row: 1;
                                 padding: ($grid-gutter-width * 3) 0 $grid-gutter-width 0;
-                                
+                                .content {
+                                    @include media-breakpoint-up(lg) {
+                                        width: 60%;
+                                    }
+                                }
 
                                 &:after {
                                     content: "";

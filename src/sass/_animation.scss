@@ -9,11 +9,14 @@
 }
 
 @keyframes activeText {
-    from {
+    0% {
         transform: translateX(25%);
     }
 
-    to {
+    50% {
+        transform: translateX(25%);
+    }
+    100% {
         transform: translateX(0%);
     };
 }

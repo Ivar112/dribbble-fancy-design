@@ -1,0 +1,9 @@
+.full-page {
+    transform: translateY(-100%);
+    grid-area: 1 / 5 / 1 / span 8;
+    gap: 0;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    background-color: $body-bg;
+}

@@ -106,3 +106,12 @@
         padding: $btn-padding-y $btn-padding-x;
     }
 }
+
+@keyframes contentScrollUp {
+    from {
+        transform: translateY(200%);
+    }
+    to {
+        transform: translate(0);
+    }
+}

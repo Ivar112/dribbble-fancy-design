@@ -123,6 +123,13 @@ document.getElementById('fullPage1').addEventListener('click', function(e) {
 });
 
 document.querySelectorAll('.btn-close').forEach(element => {
-        element.addEventListener('click', function (e) {element.parentElement.classList.remove('show')
+    element.addEventListener('click', function (e) {
+        element.parentElement.classList.remove('show');
+        element.parentElement.lastElementChild.classList.remove('show');
+        element.parentElement.lastElementChild.previousElementSibling.classList.remove('show');
     });
+});
+
+document.querySelectorAll('.content').forEach(element => {
+    element.addEventListener('wheel', function (e) {element.nextElementSibling.classList.add('show');});
 });

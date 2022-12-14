@@ -47,6 +47,7 @@ body {
             .main-grid {
                 grid-template-rows: 1fr;
                 gap: 0;
+                overflow-y: clip;
                 .main-col {
                     &-left {
                         border-right: 3px solid $primary;
@@ -166,6 +167,7 @@ body {
                                 position: relative;
                                 grid-row: 1;
                                 padding: ($grid-gutter-width * 3) 0 $grid-gutter-width 0;
+                                min-height: 264px;
                                 .content {
                                     @include media-breakpoint-up(lg) {
                                         width: 60%;

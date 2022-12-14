@@ -5,6 +5,8 @@
     display: grid;
     place-items: center;
     z-index: 2;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     background-color: $body-bg;
     position: relative;
     height: calc(100vh - 91px);
@@ -20,7 +22,11 @@
     }
     .content {
         width: 100%;
+        height: 100%;
         height: inherit;
+        grid-column: 1;
+        grid-row: 1;
+        background-color: $body-bg;
         img {
             width: 100%;
             height: inherit;
@@ -28,12 +34,59 @@
             object-position: center;
             transition: 1s ease-in;
         }
+        &-pane-2,
+        &-pane-3 {
+            transform: translateY(220%);
+            &.show {
+                animation: contentScrollUp 1000ms ease-out forwards;
+            }
+        }
+        &-pane-2 {
+            padding: ($grid-gutter-width * 6) ($grid-gutter-width * 2) 0 ($grid-gutter-width * 2);
+            .grid {
+                grid-template-columns: 1fr 2fr;
+                gap: $grid-gutter-width * 2;
+                .g-col-md-4 {
+                    grid-column: 1 / span 1;
+                    padding: 0;
+                    .img-fluid {
+                        margin-top: -45%;
+                        max-height: 30%;
+                        margin-bottom: $grid-gutter-width * 4;
+                    }
+                    .text {
+                        width: 65%;
+                        h3 {
+                            margin-bottom: $spacer * 1.5;
+                        }
+                        p {
+                            font-size: $font-size-base * 1.125;
+                            &:first-of-type {
+                                margin-bottom: $grid-gutter-width * 2;
+                            }
+                        }
+                    }
+                }
+                .g-col-md-8 {
+                    grid-column: 2 / span 1;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    .slide-count {
+                        display: inline-block;
+                        font-size: $h5-font-size;
+                        margin: 0 0 $grid-gutter-width auto;
+                    }
+                }
+            }
+        }
     }
     &.show {
         animation: slideDown 1000ms ease-out forwards;
         .btn-close {
             animation: btnHeight 750ms ease-in-out both;
             animation-delay: 750ms;
+            z-index: $zindex-fixed;
         }
         .content {
             img {

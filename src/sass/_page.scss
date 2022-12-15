@@ -80,6 +80,39 @@
                 }
             }
         }
+        &-pane-3 {
+            padding: 0 ($grid-gutter-width * 2);
+            background-color: $primary;
+            color: $gray-600;
+            overflow: hidden;
+            .grid {
+                .g-col-md-5 {
+                    font-size: $font-size-base * 1.125;
+                    &:nth-of-type(odd) {
+                        padding-left: 0;
+                        display: flex;
+                        span {
+                            margin-top: auto;
+                        }
+                        img {
+                            margin-top: -50%;
+                        }
+                    }
+                    &:nth-of-type(even){
+                        padding-right: 0;
+                    }
+                    &:first-of-type {
+                        margin-top: -200px;
+                    }
+                }
+                .picture-lg {
+                    margin-left: calc(-#{$grid-gutter-width * 2} - 3px);
+                    img {
+                        object-position: top;
+                    }
+                }
+            }
+        }
     }
     &.show {
         animation: slideDown 1000ms ease-out forwards;

@@ -9,7 +9,11 @@ p {
 }
 
 h1 {
-    font-size: max(5vw, ($font-size-lg * 3.5));
+    font-size: min(6vh, ($font-size-lg * 5.5));
     line-height: 1.1;
-    margin-bottom: $grid-gutter-width * 3;
+    margin-bottom: min(8vh, $grid-gutter-width * 3);
 }
+
+h2 {
+    font-size: calc(1.325rem + .5vw);
+};

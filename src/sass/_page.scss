@@ -100,6 +100,13 @@
                     }
                     &:nth-of-type(even){
                         padding-right: 0;
+                        display: flex;
+                        .shape {
+                            width: 100%;
+                            height: $spacer;
+                            background-color: $body-bg;
+                            margin-top: auto;
+                        }
                     }
                     &:first-of-type {
                         margin-top: -200px;

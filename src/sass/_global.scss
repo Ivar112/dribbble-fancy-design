@@ -26,11 +26,15 @@
     }
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+    max-height: 100vh;
     &.transitioning {
         .page-count {
             span {
@@ -41,6 +45,8 @@ body {
     .main {
         flex-grow: 1;
         display: flex;
+        max-height: calc(100vh - 91px);
+        overflow: hidden;
         .container-fluid {
             display: flex;
             padding: 0;
@@ -91,8 +97,12 @@ body {
                                 z-index: 1;
                             }
                         }
-                        .grid {
-                            display: relative;
+                        .intro {
+                            display: flex;
+                            p {
+                                max-width: 80%;
+                                margin-right: $spacer * 1.5;
+                            }
                             .arrow {
                                 border-top: 5px solid $primary;
                                 border-right: 5px solid $primary;
@@ -156,6 +166,7 @@ body {
                             row-gap: $grid-gutter-width;
                             display: grid;
                             grid-template-rows: auto 1fr;
+                            max-height: calc(100vh - 91px);
                             @for $i from 1 through 3 {
                                 &-#{$i} {
                                     order: $i;
@@ -169,7 +180,11 @@ body {
                                 padding: ($grid-gutter-width * 3) 0 $grid-gutter-width 0;
                                 min-height: 264px;
                                 .content {
-                                    @include media-breakpoint-up(lg) {
+                                    width: 85%;
+                                    @include media-breakpoint-up(xl) {
+                                        width: 80%;
+                                    }
+                                    @media (min-width: 1600px) {
                                         width: 60%;
                                     }
                                 }
@@ -186,12 +201,12 @@ body {
                             }
                             .bottom-row {
                                 grid-row: 2;
+                                max-height: calc(100vh -  420px);
                                 .img-fluid {
                                     height: 100%;
                                     width: 100%;
                                     object-fit: cover;
                                     object-position: center;
-                                    aspect-ratio: 1;
                                 }
                             }
                         }

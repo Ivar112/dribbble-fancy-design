@@ -131,5 +131,9 @@ document.querySelectorAll('.btn-close').forEach(element => {
 });
 
 document.querySelectorAll('.content').forEach(element => {
-    element.addEventListener('wheel', function (e) {element.nextElementSibling.classList.add('show');});
+    element.addEventListener('wheel', function (e) {
+        if (element.nextElementSibling) {
+            element.nextElementSibling.classList.add('show');
+        }
+    });
 });

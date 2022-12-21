@@ -119,6 +119,8 @@ document.addEventListener('keydown', function(e) {
 
 document.getElementById('fullPage1').addEventListener('click', function(e) {
     document.querySelectorAll('.full-page-1')[0].classList.add("show");
+    document.getElementById('fullPage1').firstElementChild.classList.add("zoom");
+    setTimeout(function () {document.getElementById('fullPage1').firstElementChild.classList.remove("zoom")}, 310);
     document.body.classList.add('page-open');
 });
 

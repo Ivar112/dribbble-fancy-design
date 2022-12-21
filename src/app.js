@@ -117,12 +117,14 @@ document.addEventListener('keydown', function(e) {
  
 });
 
-document.getElementById('fullPage1').addEventListener('click', function(e) {
-    document.querySelectorAll('.full-page-1')[0].classList.add("show");
-    document.getElementById('fullPage1').firstElementChild.classList.add("zoom");
-    setTimeout(function () {document.getElementById('fullPage1').firstElementChild.classList.remove("zoom")}, 310);
-    document.body.classList.add('page-open');
-});
+for (let i = 1; i <= 3; i++) {
+    document.getElementById('fullPage' + i).addEventListener('click', function(e) {
+        document.querySelectorAll('.full-page-' + i)[0].classList.add("show");
+        document.getElementById('fullPage' + i).firstElementChild.classList.add("zoom");
+        setTimeout(function () {document.getElementById('fullPage' + i).firstElementChild.classList.remove("zoom")}, 310);
+        document.body.classList.add('page-open');
+    });
+}
 
 document.querySelectorAll('.btn-close').forEach(element => {
     element.addEventListener('click', function (e) {

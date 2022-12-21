@@ -129,6 +129,7 @@ document.querySelectorAll('.btn-close').forEach(element => {
         element.parentElement.classList.remove('show');
         element.parentElement.lastElementChild.classList.remove('show');
         element.parentElement.lastElementChild.previousElementSibling.classList.remove('show');
+        document.body.classList.remove('page-open');
     });
 });
 

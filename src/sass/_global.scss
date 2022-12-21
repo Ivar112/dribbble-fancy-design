@@ -136,9 +136,8 @@ body {
                         display: grid;
                         grid-auto-columns: calc(50% - #{$spacer * 2});
                         grid-auto-flow: column;
-                        transform: translateX(0%);
                         padding: 0 0 $grid-gutter-width $grid-gutter-width;
-
+                        background-color: $body-bg;
                         &.move-left {
                             animation: slidein 1s 1 ease-in forwards;
                             .slide {
@@ -251,5 +250,14 @@ body {
                 }
             }
         }    
+    }
+    &.page-open {
+        .main-col-right {
+            transition: transform 850ms 2s;
+            transform: translateY(-100%);
+        }
+    }
+    &:not(.page-open) {
+        transform: translateX(0%);
     }
 }

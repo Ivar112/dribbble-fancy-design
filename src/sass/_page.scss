@@ -10,6 +10,7 @@
     background-color: $body-bg;
     position: relative;
     height: calc(100vh - 91px);
+    overflow-y: hidden;
 
     .btn-close {
         position: fixed;
@@ -42,27 +43,37 @@
             }
         }
         &-pane-2 {
-            padding: ($grid-gutter-width * 6) ($grid-gutter-width * 2) 0 ($grid-gutter-width * 2);
+            padding: min(15vh, ($grid-gutter-width * 6)) ($grid-gutter-width * 2) 0 ($grid-gutter-width * 2);
             .grid {
                 grid-template-columns: 1fr 2fr;
                 gap: $grid-gutter-width * 2;
                 .g-col-md-4 {
                     grid-column: 1 / span 1;
                     padding: 0;
+                    margin-top: max(-34vh, -270px);
+                    
                     .img-fluid {
-                        margin-top: -80%;
                         max-height: 30%;
-                        margin-bottom: $grid-gutter-width * 4;
+                        margin-bottom: min(6vh, $grid-gutter-width * 4);
                     }
                     .text {
-                        width: 65%;
+                        @media (min-width: 1600px) {
+                            width: 75%;
+                        }
                         h3 {
                             margin-bottom: $spacer * 1.5;
                         }
                         p {
-                            font-size: $font-size-base * 1.125;
+                            font-size: $font-size-base * .95;
+                            line-height: 1.25;
+                            @media(min-height: 800px) {
+                                font-size: $font-size-base;
+                            }
+                            @media(min-height: 950px) {
+                                font-size: $font-size-base * 1.125;
+                            }
                             &:first-of-type {
-                                margin-bottom: $grid-gutter-width * 2;
+                                margin-bottom: min(4vh, $grid-gutter-width * 2);
                             }
                         }
                     }
@@ -87,7 +98,9 @@
             overflow: hidden;
             .grid {
                 .g-col-md-5 {
-                    font-size: $font-size-base * 1.125;
+                    @include media-breakpoint-up(xl) {
+                        font-size: $font-size-base * 1.125;
+                    }
                     &:nth-of-type(odd) {
                         padding-left: 0;
                         display: flex;
@@ -109,7 +122,7 @@
                         }
                     }
                     &:first-of-type {
-                        margin-top: -200px;
+                        margin-top: -$spacer * 2;
                     }
                 }
                 .picture-lg {

@@ -99,6 +99,9 @@ body {
                         }
                         .intro {
                             display: flex;
+                            @include media-breakpoint-up(xl) {
+                                width: 80%;
+                            }
                             p {
                                 max-width: 80%;
                                 margin-right: $spacer * 1.5;

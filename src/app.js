@@ -128,9 +128,11 @@ for (let i = 1; i <= 3; i++) {
 
 document.querySelectorAll('.btn-close').forEach(element => {
     element.addEventListener('click', function (e) {
-        element.parentElement.classList.remove('show');
-        element.parentElement.lastElementChild.classList.remove('show');
-        element.parentElement.lastElementChild.previousElementSibling.classList.remove('show');
+        setTimeout(function () {element.parentElement.classList.remove('show')}, 1500);
+        setTimeout(function () {element.parentElement.lastElementChild.classList.remove('show')}, 1500);
+        setTimeout(function () {element.parentElement.lastElementChild.previousElementSibling.classList.remove('show')}, 1500);
+        document.body.classList.add('page-closing');
+        setTimeout(function () {document.body.classList.remove('page-closing');}, 1500);
         document.body.classList.remove('page-open');
     });
 });

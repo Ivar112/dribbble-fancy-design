@@ -154,3 +154,23 @@
         transform: translateY(0)
     }
 }
+
+@keyframes mainColUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes mainColDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}

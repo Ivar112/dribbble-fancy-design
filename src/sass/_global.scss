@@ -253,11 +253,14 @@ body {
     }
     &.page-open {
         .main-col-right {
-            transition: transform 850ms 2s;
-            transform: translateY(-100%);
+            animation:  mainColUp 1ms 1000ms forwards;
         }
     }
-    &:not(.page-open) {
-        transform: translateX(0%);
+    &.page-closing {
+        .main .container-fluid .main-grid .main-col-right {
+            z-index: 3;
+            animation:  mainColDown 1000ms forwards;
+            pointer-events: none;
+        }
     }
 }
